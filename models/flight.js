@@ -13,5 +13,5 @@ const flightSchema = new Schema({
 	
 // Compile the schema into a model and export it
 const Flight = mongoose.model('Flight', flightSchema);
-console.log(Flight);
+// console.log(Flight);
 module.exports = Flight;

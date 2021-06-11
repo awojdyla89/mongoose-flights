@@ -19,17 +19,15 @@
     </thead>
     <tbody>
       <!-- Write the line of EJS to iterate over movies using forEach -->
-      <!-- movies. comes from the controller index function -->
-      <% movies.forEach(m => { %>
+      <!-- flights. comes from the controller index function -->
+      <% flights.forEach(f => { %>
        
         <tr>
-          <td><%= m.title %></td>
-          <td><%= m.releaseYear %></td>
-          <td><%= m.mpaaRating %></td>
-          <td><%= m.cast.join(', ') %></td>
-          <!-- finish the ternary expression to display
-                       'Yes' or 'Nope' --> 
-          <td><%= m.nowShowing ? 'Yes' : 'Nope' %></td>
+          <td><%= f.airline %></td>
+          <td><%= f.airport %></td>
+          <td><%= f.flightNo %></td>
+          <td><%= f.departs %></td>
+          
         </tr>
 	<% }) %>
       <!-- Close the forEach using EJS here -->
