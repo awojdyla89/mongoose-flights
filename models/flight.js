@@ -1,14 +1,20 @@
 const mongoose = require('mongoose');
 // optional shortcut to the mongoose.Schema class
-
-
 const Schema = mongoose.Schema;
+
+
+const destinationSchema = new Schema({
+  airport: String,
+  arrival: Date
+})
+
 	
 const flightSchema = new Schema({
   airline: String,
-  airport: {type: String, default: 'DEN'},
+  airport: String,
   flightNo: Number, 
-  departs: Date
+  departs:  Date, 
+  destinations: [destinationSchema]
 });
 	
 // Compile the schema into a model and export it

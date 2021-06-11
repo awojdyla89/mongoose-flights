@@ -10,8 +10,8 @@ function create(req, res){
     
     if(req.body.departs == ''){
         let newDate =  new Date();
-        let year = newDate.setFullYear(newDate.getFullYear() + 1);
-        req.body.departs =  year
+        let updateYear = newDate.setFullYear(newDate.getFullYear() + 1);
+        req.body.departs =  updateYear
     }
     
      Flight.create(req.body, function(err, flightDocument){
@@ -19,7 +19,6 @@ function create(req, res){
              console.log(err);
          return res.render('flights/new')
          }
-         console.log(flightDocument, " < THis is document we created");
          res.redirect('/flights')
      });
     
