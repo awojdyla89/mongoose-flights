@@ -8,26 +8,21 @@ module.exports = {
 
 function create(req, res){
     
+    if(req.body.departs == ''){
+        let newDate =  new Date();
+        let year = newDate.setFullYear(newDate.getFullYear() + 1);
+        req.body.departs =  year
+    }
     
-    if(req.body.flightNo < 10 && req.body.flightNo > 9999){
-        req.body.flightNo == 'n/a';
-    }
-    if(req.body.departs == null){
-        req.body.departs.cast == 'n/a';
-    }
-        console.log(req.body.airline);
-        console.log(req.body.airport);
-        console.log(req.body.flightNo);
-        console.log(req.body.departs);
-
      Flight.create(req.body, function(err, flightDocument){
          if(err) {
              console.log(err);
          return res.render('flights/new')
          }
-     })
+         console.log(flightDocument, " < THis is document we created");
+         res.redirect('/flights')
+     });
     
-    res.redirect('/flights')
 }
 
 function newFlight(req, res){

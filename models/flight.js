@@ -6,8 +6,8 @@ const Schema = mongoose.Schema;
 	
 const flightSchema = new Schema({
   airline: String,
-  airport: String,
-  flightNo: Number,
+  airport: {type: String, default: 'DEN'},
+  flightNo: Number, 
   departs: Date
 });
 	
