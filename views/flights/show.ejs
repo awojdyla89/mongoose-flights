@@ -1,0 +1,57 @@
+<%- include('../partials/header') %>
+<!-- flight.airline etc.. comes from flight controller show() function -->
+<section id="show-page">
+  <div>Airline: </div>
+  <div><%= flight.airline %></div>
+  <div>Flight No: </div>
+  <div><%= flight.flightNo %></div>
+  <div>Airport: </div>
+  <div><%= flight.airport %></div>
+  <div>Departs: </div>
+  <div><%= flight.departs %></div>
+  <div>Now Showing: </div>
+  <div><%= movie.nowShowing ? 'Yes' : 'Nope' %></div>
+</section>
+
+<br><br><h2>Destinations</h2>
+<form id="add-review-form" method="POST"
+  action="/movies/<%=flight._id%>/reviews">
+  <label>Review:</label>
+  <textarea name="content"></textarea>
+  <label>Destination:</label>
+  <select name="rating">
+    <option value="DEN">DEN</option>
+    <option value="ATL">ATL</option>
+    <option value="DFW">DFW</option>
+    <option value="LAX">LAX</option>
+    <option value="SAN">SAN</option>
+  </select>
+  <input type="submit" value="Add Destination">
+</form>
+  
+
+<% if (movie.reviews.length) { %>
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Review</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% movie.reviews.forEach(function(r) { %>
+        <tr>
+          <td><%= r.createdAt.toLocaleDateString() %></td>
+          <td><%= r.content %></td>
+          <td><%= r.rating %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+<% } else { %>
+  <h5>No Reviews Yet</h5>
+<% } %>
+
+
+<%- include('../partials/footer') %>
