@@ -1,10 +1,43 @@
 
+* {
+    box-sizing: border-box;
+    font-family: Helvetica;
+    color: #424748;
+  }
+
+nav {
+    
+    display: flex;
+    flex-direction: row;
+   justify-content: flex-end;
+   
+    
+    font-size: 27px;
+}
+nav > a{
+    padding-left: 10px;
+    color: blue;
+}
+
 body {
     padding: 50px;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: darkgrey;
+  }
+
+  
+  
+  .detail-button {
+    font: bold 12px Arial;
+    text-decoration: none;
+    background-color: #eeb7b7;
+    color: #333333;
+    padding: 2px 6px 2px 6px;
+    border-top: 1px solid #CCCCCC;
+    border-right: 1px solid #333333;
+    border-bottom: 1px solid #333333;
+    border-left: 1px solid #CCCCCC;
+    border-radius: 8px;
   }
   
-  a {
-    color: #00B7FF;
-  }
   

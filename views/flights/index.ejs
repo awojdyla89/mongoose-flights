@@ -7,14 +7,15 @@
   <title>Mongoose Flights</title>
 </head>
 <body>
-  <header>
+  <nav>
     <a href="/flights/new">Add Flight</a>
       <a href="/flights">All Flights</a>
-  </header>
+    </nav>
   
   <h1>Flights List</h1>
   <table>
     <thead>
+      
       <tr>
         <th>Airline</th>
         <th>Airport</th>
@@ -32,7 +33,7 @@
           <td><%= f.airport %></td>
           <td><%= f.flightNo %></td>
           <td><%= f.departs %></td>
-          <td><a href="/flights/<%=f._id%>">DETAILS</a></td>
+          <td><a href="/flights/<%=f._id%>" class="detail-button">DETAILS</a></td>
           
         </tr>
 	<% }) %>
