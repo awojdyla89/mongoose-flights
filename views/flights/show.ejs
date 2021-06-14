@@ -1,4 +1,19 @@
-<%- include('../partials/header') %>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' href='/stylesheets/basic.css' />
+  <title>Mongoose Flights</title>
+</head>
+<body>
+  <nav>
+    <a href="/flights/new">Add Flight</a>
+      <a href="/flights">All Flights</a>
+    </nav>
+    <main>
+<h1>Flight Details</h1>
+
 <!-- flight.airline etc.. comes from flight controller show() function -->
 <section id="show-page">
   <div>Airline: </div>
@@ -43,6 +58,7 @@
     <tbody>
       <% flight.destinations.forEach(function(d) { %>
         <tr>
+        
           <td><%= d.airport %></td>
           <td><%= d.arrival %></td>
         </tr>
@@ -54,4 +70,6 @@
 <% } %>
 
 
-<%- include('../partials/footer') %>
+</main>
+</body>
+</html>
