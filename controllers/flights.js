@@ -14,17 +14,13 @@ function show(req, res){
     //     res.render('flights/show', {title: 'Flight Detail', flight})
     // })
      Flight.findById(req.params.id)
-     .populate('flight').exec(function(err, flightDoc){
-         console.log(flightDoc);
-
+     .populate('tickets').exec(function(err, flightDoc){
+         console.log(flightDoc, "in the SHOWW ROUTE");
+         
          Ticket.find(
-             {_id: {$nin: flightDoc.flight}},
+             {_id: {$nin: flightDoc.tickets}},
              function(err, ticketsDoc){
-                 res.render('flights/show', {
-                     title: 'Flight Detail',
-                     flight: flightDoc,
-                     tickets: ticketsDoc
-                 })
+                res.render('flights/show', {title: 'Flight Detail', flight: flightDoc, tickets: ticketsDoc});
              }
          )
      })
@@ -43,7 +39,8 @@ function create(req, res){
              console.log(err);
          return res.render('flights/new')
          }
-         res.redirect('/flights')
+         console.log("NEW FLIGHT in controllers-----", flightDocument);
+         res.redirect(`/flights/${flightDocument._id}`)
      });
     
 }
