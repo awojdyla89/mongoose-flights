@@ -2,7 +2,7 @@
 * {
     box-sizing: border-box;
     font-family: Helvetica;
-    color: #424748;
+    /* color: #5598a5; */
   }
 
 
@@ -38,7 +38,8 @@
   
   body > nav {
     grid-area: nav;
-    background-color: #B8C0C2;
+    background-color: #5fa4b1;
+    
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -63,8 +64,12 @@
   nav > a {
     margin: 20px;
     text-decoration: none;
+    color:aqua;
     padding: 10px;
     border-radius: 5px;
+  }
+  nav > a:hover{
+    color: black;
   }
 
   table thead th {
@@ -81,4 +86,13 @@
     display: grid;
     grid-template-columns: auto auto;
     grid-gap: 1rem;
+  }
+  #booked-seats div{
+    float: left;
+    padding: 5px;
+  }
+
+  #new-flight-form label{
+   display: flex;
+   
   }

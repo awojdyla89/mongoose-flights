@@ -17,23 +17,24 @@
 
 <!-- flight.airline etc.. comes from flight controller show() function -->
 <section id="show-page">
-  <div>Airline: </div>
+  <div><b>Airline: </b></div>
   <div><%= flight.airline %></div>
-  <div>Flight No: </div>
+  <div><b>Flight #: </b></div>
   <div><%= flight.flightNo %></div>
-  <div>Airport: </div>
+  <div><b>Airport: </b></div>
   <div><%= flight.airport %></div>
-  <div>Departs: </div>
+  <div><b>Departs: </b></div>
   <div><%= flight.departs %></div>
   
-  <div>Flight Seat:</div>
-  <ul>
+  <div><b>Booked Seats: </b></div>
+  <ul id="booked-seats">
     <% flight.tickets.forEach(t => { %>
-     <li><%=t.seat%> <small><%=t.price%></small></li>
-    <% }) %>
-  </ul>
+      <div><%= t.seat %> </div>
+      <% }) %>
+    </ul>
 
-</section>
+  </section>
+
 
 <form id="add-per-to-flight" action="/flights/<%=flight._id%>/tickets" method="POST">
   <select name="ticketId">
