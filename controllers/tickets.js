@@ -4,10 +4,10 @@ const Ticket = require('../models/ticket');
 module.exports = {
     new: newTicket,
     create,
-    addToFlight
+    addToTicket
 }
 
-function addToFlight(req, res){
+function addToTicket(req, res){
     
     Flight.findById(req.params.id, function(err, flightDoc){
         
