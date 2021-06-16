@@ -10,20 +10,14 @@ module.exports = {
 function addToFlight(req, res){
     
     Flight.findById(req.params.id, function(err, flightDoc){
-        // Ticket.find({flight: flight._id}, function(err,ticketsDoc){
-        //     ticketsDoc.flight.push(req.body.ticketId);
-        //     ticketsDoc.save(function(err){
-
-        //         res.redirect(`/flights/${ticketsDoc._id}`);
-        //     })
-        // })
+        
         flightDoc.tickets.push(req.body.ticketId);
         flightDoc.save(function(err){
             res.redirect(`/flights/${flightDoc._id}`)
+            
         })
-
     })
-}
+}      
 
 function create(req, res){
     Ticket.create(req.body, function(err, ticketDoc){

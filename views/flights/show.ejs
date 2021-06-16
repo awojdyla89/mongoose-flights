@@ -26,10 +26,10 @@
   <div>Departs: </div>
   <div><%= flight.departs %></div>
   
-  <div>Flight:</div>
+  <div>Flight Seat:</div>
   <ul>
-    <% flight.tickets.forEach(f => { %>
-     <li><%=f.seat%> <small><%=f.price%></small></li>
+    <% flight.tickets.forEach(t => { %>
+     <li><%=t.seat%> <small><%=t.price%></small></li>
     <% }) %>
   </ul>
 
@@ -38,7 +38,7 @@
 <form id="add-per-to-flight" action="/flights/<%=flight._id%>/tickets" method="POST">
   <select name="ticketId">
     <% tickets.forEach(t => { %>
-     <option value="<%=t._id%>"><%=t.seat%></option>
+     <option value="<%=t._id%>"><%=t.seat%> $<%=t.price%> </option>
     <% }) %>
   </select>
   <button type="submit">Add to Flight</button>

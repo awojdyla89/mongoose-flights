@@ -5,8 +5,8 @@ module.exports = {
 }
 
 function create(req, res){
-    console.log(req.body);
-    console.log(req.body.id, "<flight._id!!!!!!!!!!!!!!!")
+    //console.log(req.body);
+    //console.log(req.body.id, "<flight._id!!!!!!!!!!!!!!!")
 
     Flight.findById(req.params.id, function(err, flightDoc){
         flightDoc.destinations.push(req.body);

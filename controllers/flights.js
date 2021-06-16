@@ -9,10 +9,7 @@ module.exports = {
 }
 
 function show(req, res){
-    // Flight.findById(req.params.id, function(err, flight){
-    //     console.log(flight);
-    //     res.render('flights/show', {title: 'Flight Detail', flight})
-    // })
+   
      Flight.findById(req.params.id)
      .populate('tickets').exec(function(err, flightDoc){
          console.log(flightDoc, "in the SHOWW ROUTE");
@@ -24,7 +21,14 @@ function show(req, res){
              }
          )
      })
+
+    // Flight.findById(req.params.id, function(err, flight) {
+    //     Ticket.find({flight: flight._id}, function(err, tickets) {
+    //         res.render('flights/show', { flight, tickets});
+    //     });
+    // });
 }
+
 
 function create(req, res){
     
@@ -36,13 +40,14 @@ function create(req, res){
     
      Flight.create(req.body, function(err, flightDocument){
          if(err) {
-             console.log(err);
+        console.log(err);
          return res.render('flights/new')
          }
-         console.log("NEW FLIGHT in controllers-----", flightDocument);
+         
          res.redirect(`/flights/${flightDocument._id}`)
+         //res.redirect('/flights')
      });
-    
+   
 }
 
 function newFlight(req, res){

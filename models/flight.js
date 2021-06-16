@@ -17,8 +17,11 @@ const flightSchema = new Schema({
   airport: String,
   flightNo: Number, 
   departs:  Date, 
-   tickets: [{type: Schema.Types.ObjectId, ref: 'Ticket'}],
+   
   destinations: [destinationSchema],
+
+  tickets: [{type: Schema.Types.ObjectId, ref: 'Ticket'}],
+  
 }, {
   timestamps: true
 });
